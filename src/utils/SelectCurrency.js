@@ -2,23 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import {currencies} from './currencies'
 
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'TRY',
-    label: '₺',
-  },
-];
 
-export default function CurrencyComp() {
+export default function SelectCurrency() {
   const [currency, setCurrency] = React.useState('TRY');
 
   const handleChange = (event) => {
@@ -30,6 +17,7 @@ export default function CurrencyComp() {
     >
       <div>
         <TextField
+        style={{ width: "300px", marginTop: "8px", padding: "5px", justifyContent: "center" }}
           select
           label="Select"
           value={currency}
@@ -38,7 +26,7 @@ export default function CurrencyComp() {
         >
           {currencies.map((option) => (
             <MenuItem key={option.value} value={option.value}>
-              {option.label}
+              {option.value}
             </MenuItem>
           ))}
         </TextField>
